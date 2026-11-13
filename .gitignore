@@ -1,0 +1,15 @@
+BACKEND_SPECIFICATION.md
+PROJECT_SPECIFICATION.md
+
+# Binaries
+*.exe
+cmd/server/main.exe
+
+# Node / Vite
+node_modules/
+web/node_modules/
+web/dist/
+
+# SQLite temp files
+*.db-shm
+*.db-wal

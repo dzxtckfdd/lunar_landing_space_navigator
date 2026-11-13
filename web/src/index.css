@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg-dark: #020305;
+  --navy-dark: #121c24;
+  --white: #ffffff;
+  --crimson-red: #a31c1e;
+  --solar-yellow: #fce873;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ── Custom Target Marker (Matching Uploaded Image Reference) ── */
+.lunar-target-marker {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #0d151c;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.95);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+  z-index: 10;
+}
+
+.lunar-target-marker:hover,
+.lunar-target-marker.active {
+  transform: translate(-50%, -50%) scale(1.35);
+  box-shadow: 0 0 24px rgba(252, 232, 115, 0.9), 0 0 10px rgba(255, 255, 255, 0.9);
+  z-index: 20;
+}
+
+.lunar-target-marker .inner-white-ring {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff; /* Bright white middle ring */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lunar-target-marker .center-red-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--crimson-red); /* #A31C1E rich red center dot */
+  transition: background 0.15s;
+}
+
+.lunar-target-marker.active .center-red-dot {
+  background-color: #d92326;
+  box-shadow: 0 0 8px rgba(217, 35, 38, 0.8);
+}
+
+.marker-label {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(7, 11, 16, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.9);
+}
